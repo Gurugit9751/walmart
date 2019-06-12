@@ -1,0 +1,90 @@
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    flex-direction: row;
+    background-color: #efefef;
+    top: 42px;
+    position: relative;
+    padding-bottom: 40px;
+  }  
+  .flex-container > div {
+    background-color: white;
+    overflow: hidden;
+    width: 319px;
+    height: 370px;
+    margin: 4px;
+    padding: 5px;
+    border-radius: 2px;
+    box-shadow: 2px 2px 4px #a0a0a0;
+  }
+  .itemPrice{
+    width: 100%;
+    height: 50px;
+    font-size: 1.7em;
+    text-align: center;
+    text-shadow: 2px 2px #dadada;
+    font-style: oblique;
+  }
+  .itemName{
+    width: 100%;
+    font-size: 15px;
+    height: 40px;
+    font-weight: 600;
+    color: #4646c3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .itemRating{
+    width: 14%;
+    height: 24px;
+    background: #0a7b0a;
+    border-radius: 4px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    float: left;
+    margin-right: 10px;
+  }
+  .mnuclass{
+    float: right;
+    margin-right: 34px;
+  }
+  .imgCls{
+    height: 230px;
+    width: 266px;
+    position: relative;
+    left: 28px
+  }
+  .itemRatingTxt{
+    font-weight: 500;
+    color: #e2732f;
+    line-height: 20px;
+  }
+  .itemRateHeading{
+    float: left;
+      margin-right: 16px;
+  }
+  div ul{
+    font-size: 14px;
+  }
+  
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
