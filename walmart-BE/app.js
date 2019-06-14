@@ -1,9 +1,7 @@
 const express = require('express');
 const cors = require('cors');
-const bodyParser = require('body-parser');
 const Client = require('node-rest-client').Client;
 const app = express();
-app.use(bodyParser.json());
 app.use(cors());
 process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0;
 let data = require("./data");
