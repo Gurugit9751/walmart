@@ -12,8 +12,7 @@ class SearchbarMenu extends Component {
                             <div className="searchDownArrow" sortid={i.min} onClick={() => this.props.sortCB("max",i.sortfield)}></div>
                         </div>
                     </div>
-                )}
-                
+                )}                
             </div>
         )
     }

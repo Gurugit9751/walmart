@@ -50,9 +50,12 @@ export const SearchInputMenus = [
         id: 6,
         title: "MaxCount",
         type: "number",
-        name: "maxReviewCount"
+        name: "maxReviewCount"         
     }
 ];
-export const queryURL="https://mobile-tha-server-8ba57.firebaseapp.com/walmartproducts/1/20";
+
+let baseUrl = "http://localhost:5000";
+export const queryURL=`${baseUrl}/walmartproducts/1/20`;
+export const FilterQuery=`${baseUrl}/products/filter`;
 export const ImgSrcURL = "https://mobile-tha-server.firebaseapp.com/";
-export const MoreDetailsURL = 'https://mobile-tha-server-8ba57.firebaseapp.com/walmartproducts/';
+export const MoreDetailsURL = `${baseUrl}/walmartproducts/`;

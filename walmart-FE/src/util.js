@@ -4,7 +4,7 @@ funcion:sortAscending
 argument:items,fields
 Description:below function is implementing the logic for list with assending order
 ***************************************************************************************************/
-import { queryURL } from "./config";
+import { FilterQuery } from "./config";
 export const sortAscending = (items, fields) => {
   if (fields === "price") {
     items.sort(function (a, b) {
@@ -47,8 +47,12 @@ argument:data
 Description:below function is creating the fetch URL query parameters based on user selection input
 ***************************************************************************************************/
 export const UserFilterQuery = (data) => {
-  let url = new URL(queryURL);
-  Object.keys(data).forEach(key => url.searchParams.append(key, data[key]))
+  let url = new URL(FilterQuery);
+  Object.keys(data).forEach(key => {
+    if (data[key].length > 0) {
+      url.searchParams.append(key, data[key]);
+    }
+  });
   return new Promise((resolve, reject) => {
     fetch(url)
       .then(res => res.json())

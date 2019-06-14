@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { MoreDetailsURL,ImgSrcURL } from "./config";
+import { MoreDetailsURL, ImgSrcURL } from "./config";
 class MoreDetails extends React.Component {
     render() {
         const { id } = this.props.match.params;
@@ -21,7 +21,7 @@ class DetailContent extends React.Component {
         this.state = {
             error: null,
             isLoaded: props.lodingStatus,
-            items: { products: [] }
+            items: []
         }
     }
     componentDidMount() {
@@ -31,7 +31,7 @@ class DetailContent extends React.Component {
             .then(res => {
                 this.setState({
                     isLoaded: true,
-                    items: res
+                    item: res
                 });
             }).catch(error => {
                 this.setState({
@@ -41,7 +41,7 @@ class DetailContent extends React.Component {
             })
     }
     render() {
-        const { error, isLoaded, items } = this.state;
+        const { error, isLoaded, item } = this.state;
         if (error) {
             return <div className="fetchError">Error: {error.message}</div>;
         }
@@ -51,27 +51,26 @@ class DetailContent extends React.Component {
         else {
             return (
                 <div>
-                    {items.products.map((item, index) => {
-                        return <div className="detailflex-container" key={index} >
-                            <div className="detailflex-leftsidecontainer">
-                                <img className="detailimgCls" alt="ThamnailImage" src={ImgSrcURL + item.productImage} />
-                            </div>
-                            <div className="detailflex-rightsidecontainer">
-                                <div>
-                                    <div className="detailitemPrice">{item.price}</div>
-                                    <div className="detailitemName">{item.productName}</div>
-                                </div>
-                                <div>
-                                    <div className="itemRateHeading">Rating & Reviews </div>
-                                    <div className="itemRating"> {item.reviewRating.toPrecision(2).toString()}<b> *</b></div>
-                                    <div className="itemRatingTxt">& {item.reviewCount} reviews </div>
-                                    <div dangerouslySetInnerHTML={{ __html: item.shortDescription }} />
-                                    <div dangerouslySetInnerHTML={{ __html: item.longDescription }} />
-                                </div>
-                            </div>
-                            <Link className="detailmnuclass" to="/">Back</Link>
+                    <div className="detailflex-container">
+                        <div className="detailflex-leftsidecontainer">
+                            <img className="detailimgCls" alt="ThamnailImage" src={ImgSrcURL + item.productImage} />
                         </div>
-                    })}
+                        <div className="detailflex-rightsidecontainer">
+                            <div>
+                                <div className="detailitemPrice">{item.price}</div>
+                                <div className="detailitemName">{item.productName}</div>
+                            </div>
+                            <div>
+                                <div className="itemRateHeading">Rating & Reviews </div>
+                                <div className="itemRating"> {item.reviewRating.toPrecision(2).toString()}<b> *</b></div>
+                                <div className="itemRatingTxt">& {item.reviewCount} reviews </div>
+                                <div dangerouslySetInnerHTML={{ __html: item.shortDescription }} />
+                                <div dangerouslySetInnerHTML={{ __html: item.longDescription }} />
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <Link className="detailmnuclass" to="/">Back</Link>
                 </div>
             );
         }
